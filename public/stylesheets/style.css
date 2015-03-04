@@ -1,6 +1,7 @@
 body {
     padding: 50px;
-    background-color: rgb(181, 202, 160);
+  /*  background-color: rgb(181, 202, 160);*/
+    background-color: rgb(220,220,220);
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -17,7 +18,7 @@ a {
 }
 
 .grid figure {
-    width: 30%;
+    width: 350px;
     height: 200px;
     overflow: hidden;
     display: inline-block;
