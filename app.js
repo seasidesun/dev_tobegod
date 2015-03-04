@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
+var config = require('./config');
 var appRouter = require('./routes/index');
-// var users = require('./routes/users');
 
 var app = express();
 
@@ -15,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.text({type: 'text/xml'}));
@@ -23,44 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
-// app.use('/users', users);
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+// create access,error stream
+var accessLogStream = fs.createWriteStream(__dirname + config.express.access_path, {flags: 'a'});
+ 
+// log access 
+app.use(logger('combined', {stream: accessLogStream}));
 
 appRouter(app);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var error = new Error('Not Found: "' + req.originalUrl + '"');
-    error.status = 404;
-    error.code = 404;
-    next(error);
-    // var err = new Error('Not Found');
-    // err.status = 404;
-    // next(err);
-});
 
 module.exports = app;
