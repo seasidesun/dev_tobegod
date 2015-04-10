@@ -40,7 +40,7 @@ $(function() {
                 markerImg.className = "markerlnglat";
 
             markerImg.src = list[i].imgArray[0].imgUrl + IMG_STYLE;
-            // console.log(markerImg.src);
+            console.log(markerImg.src);
             markerContent.appendChild(markerImg);
             markerImg.setAttribute("class", "img-circle");
             marker.setContent(markerContent);
@@ -170,7 +170,7 @@ $(function() {
         for (var i = 0, len = imgList.length; i < len; i++) {
             var src = $(imgList[i]).attr('src');
             src = src.slice(0, src.indexOf("?"));
-            imgArray.push(src);
+            imgArray.push({imgUrl: src});
             // console.log(src);
             // return;
             // imgArray.push({imgUrl: $(imgList[i]).attr('src')});
