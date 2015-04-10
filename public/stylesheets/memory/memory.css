@@ -128,6 +128,12 @@ body
 	margin-bottom: -20px;
 }
 
+.row button 
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .row select 
 {
 	min-width: 80px;
@@ -136,7 +142,7 @@ body
 
 .row .sun-date
 {
-	margin-right: -15px;
+	margin-right: -20px;
 }
 
 #map
