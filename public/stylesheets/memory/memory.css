@@ -1,19 +1,183 @@
+body
+{
+	height:100%;
+	width:100%;
+	position:absolute;
+}
+
+.overlay
+{
+	position: fixed;
+	z-index: 995;
+	display: none;
+	width: 100%;
+	height: 100%;
+	opacity: 0.6;
+	background-color: #000;
+}
+
+.uploaddialog
+{
+	position: fixed;
+	display: none;
+	left: 25%;
+	width: 600px;
+	z-index: 996;
+	border: 8px solid rgba(204,204,204,0.5);
+}
+
+.uploaddialog .title
+{
+	margin-top: -10px;
+	height: 40px;
+	width: 100%;
+	background: #D1D1D1;
+}
+
+.uploaddialog .title img
+{
+	margin-top: 12px;
+	margin-right: 10px;
+	float: right;
+	height: 12px;
+}
+
+.uploaddialog .title h4
+{
+	padding-top: 12px;
+	margin-left: 100px;
+}
+
+.uploaddialog .dialog
+{
+	background: #FFFFFF;
+	width: 100%;
+	height: 294px;
+}
+
+.uploaddialog .left
+{
+	padding: 8px 0px 0px 8px;
+	float: left;
+	margin: 8px;
+	height: 278px;
+	width: 278px;
+	border: 3px solid rgba(204,204,204,0.5);
+	border-radius: 8px;
+}
+
+.uploaddialog .left .item, .add
+{
+	display: inline-block;
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+
+.uploaddialog .left .remove
+{
+	position: absolute;
+	width: 10px;
+	margin-left: 75px;
+	margin-top: -6px;
+	/*margin-bottom: 8px;*/
+}
+
+.uploaddialog .right
+{
+	padding-top: 10px;
+	float: left;
+	height: 100%;
+	width: 290px;
+}
+
+.uploaddialog .right .position
+{
+	height: 200px;
+	margin-left: 5px;
+	/*height: 40%;*/
+}
+
+.uploaddialog .right #smallmap
+{
+	margin-right: 10px;
+	width: 275px;
+	height: 170px;
+	border-radius: 8px;
+	border: 2px solid rgba(204,204,204,0.5);
+}
+
+
+.uploaddialog .right .menu
+{
+	margin-left: 2px;
+}
+
+.uploaddialog .right .item
+{
+	margin-bottom: 8px;
+}
+
+.uploaddialog .right .item a
+{
+	margin-left: 50px;
+}
+
+.search-box
+{
+	margin-top: 30px;
+	margin-bottom: -20px;
+}
+
+.row select 
+{
+	min-width: 80px;
+	margin-top: 1.5px;
+}
+
+.row .sun-date
+{
+	margin-right: -15px;
+}
+
+#map
+{
+	/*padding-top: 5%;*/
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 3%;
+	height: 100%;
+	width: 100%;
+}
+
 #mapContainer
 {
 	height:100%;
 	width:100%;
 }
 
-body
+#mapContainer img
 {
-	margin:0;
-	height:100%;
-	width:100%;
-	position:absolute;
+	-webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
 }
 
-.sun-img
+#mapContainer img:hover
 {
-	height:100%;
-	width:100%;
+    -webkit-transform: scale(2);
+    transform: scale(2);
 }
+
+/*#searchBox
+{
+	width: 100%;
+	float: left;
+	margin-left: 10%;
+	margin-top: 15px;
+}
+
+#searchBox select
+{
+	float: left;
+	margin-right: 30px;
+}
+*/

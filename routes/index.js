@@ -1,10 +1,11 @@
 "use strict";
 
-var errorHandler = require('../lib/utils/error_handler');
+var errorHandler = require('./error_handler');
 var pandoraRounter = require('../lib/v1/pandora/router');
 var memoryRounter = require('../lib/v1/memory/router');
 var planRounter = require('../lib/v1/plan/router');
 var userRounter = require('../lib/v1/user/router');
+var qiniuRounter = require('../lib/v1/qiniu/router');
 
 module.exports = function (app) {
 
@@ -13,6 +14,7 @@ module.exports = function (app) {
 
     app.use('/pandora', pandoraRounter);
     app.use('/memory', memoryRounter);
+    app.use('/qiniu', qiniuRounter);
     app.use('/plan', planRounter);
     app.use('/user', userRounter);
 
