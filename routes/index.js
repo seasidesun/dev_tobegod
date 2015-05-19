@@ -22,7 +22,7 @@ module.exports = function (app) {
         var bodyjson = xml2json.toJson(bodyXml);
         console.log('~~~~~');
         console.log(bodyjson);
-        var body = json.parse(bodyjson);
+        var body = JSON.parse(bodyjson);
         console.log('~~~~~');
         console.log(body);
     });
