@@ -18,8 +18,8 @@ $(function() {
 
     var mainMap = new AMap.Map('mapContainer', {
         view: new AMap.View2D({
-            center: new AMap.LngLat(117.157428, 35.058230), //117.157428, 35.058230
-            zoom: 4
+            center: new AMap.LngLat(117.157428, 37.358230), //117.157428, 35.058230
+            zoom: 5
         })
     });
 

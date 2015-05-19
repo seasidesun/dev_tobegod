@@ -14,6 +14,7 @@
     "debug": "~2.0.0",
     "mongoskin": "*",
     "ejs": "*",
-    "async": "*"
+    "async": "*",
+    "xml2json": "^0.5.1"
   }
 }
