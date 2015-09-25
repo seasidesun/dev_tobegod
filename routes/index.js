@@ -6,7 +6,6 @@ var memoryRounter = require('../lib/v1/memory/router');
 var planRounter = require('../lib/v1/plan/router');
 var userRounter = require('../lib/v1/user/router');
 var qiniuRounter = require('../lib/v1/qiniu/router');
-var xml2json = require('xml2json');
 
 module.exports = function (app) {
 
@@ -15,16 +14,8 @@ module.exports = function (app) {
 
     // for test
     app.post('/sms/result/push', function (req, res, next) {
-
-        var bodyXml = req.body;
-        console.log('~~~~~');
-        console.log(bodyXml);
-        var bodyjson = xml2json.toJson(bodyXml);
-        console.log('~~~~~');
-        console.log(bodyjson);
-        var body = JSON.parse(bodyjson);
-        console.log('~~~~~');
-        console.log(body);
+        console.log(req.body);
+        console.log(req.query);
     });
 
     app.use('/pandora', pandoraRounter);
