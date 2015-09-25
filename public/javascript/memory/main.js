@@ -26,13 +26,13 @@ $(function() {
     function refresh (list) {
 
         for (var i = list.length - 1; i >= 0; i--) {
-            var marker = new AMap.Marker({ //创建自定义点标注                 
+            var marker = new AMap.Marker({ //创建自定义点标注
                 map: mainMap,
                 position: new AMap.LngLat(list[i].position.lng, list[i].position.lat),
                 offset: new AMap.Pixel(-10, -15)
                 // icon: "http://localhost:3006/favicon.ico"
             });
-            
+
             var markerContent = document.createElement("div");
                 markerContent.className = "markerContentStyle";
 
@@ -46,7 +46,7 @@ $(function() {
             marker.setContent(markerContent);
             marker.setAnimation('AMAP_ANIMATION_BOUNCE');
 
-            AMap.event.addListener(marker,"click",function(e){  
+            AMap.event.addListener(marker,"click",function(e){
                 // window.location.href='/';
             });
         };
@@ -86,7 +86,7 @@ $(function() {
 
 
         // var mapCenter = map.getCenter();
-        // document.getElementById('centerInfo').innerHTML = '当前地图中心点坐标：' + mapCenter.getLng() + ',' + mapCenter.getLat();         
+        // document.getElementById('centerInfo').innerHTML = '当前地图中心点坐标：' + mapCenter.getLng() + ',' + mapCenter.getLat();
     }
 
     $("#upshow").click(function (e) {
@@ -190,7 +190,7 @@ $(function() {
 
         $.ajax({
             type: "post",
-            contentType: "application/json", 
+            contentType: "application/json",
             data: JSON.stringify(data),
             url: origin + "/memory/api/v1/picture",
             success: function (ret) {
@@ -201,7 +201,7 @@ $(function() {
         });
 
     });
-    
+
     var uploader = Qiniu.uploader({
         runtimes: 'html5,flash,html4',
         browse_button: 'pickfiles',
@@ -261,8 +261,8 @@ $(function() {
     // console.log("uploader:");
     // console.log(uploader);
 
-    
-    
+
+
     // imageLayer=new AMap.ImageLayer({
     //         url: 'http://localhost:3006/favicon.ico',
     //         bounds: new AMap.Bounds( //经纬度边界
@@ -282,13 +282,13 @@ $(function() {
     // });
 
 
-    
+
 
     /*
-    var marker = new AMap.Marker({ //创建自定义点标注                 
+    var marker = new AMap.Marker({ //创建自定义点标注
       map: map,
       position: new AMap.LngLat(116.406326, 39.903942),
-      offset: new AMap.Pixel(-10, -34),               
+      offset: new AMap.Pixel(-10, -34),
       icon: "http://localhost:3006/favicon.ico"
     });
 
@@ -300,8 +300,8 @@ $(function() {
     var markerImg = document.createElement("img");
             markerImg.className = "markerlnglat";
             markerImg.src = "http://localhost:3006/images/test.jpg";
-            // markerImg.src = "http://localhost:3006/favicon.ico"; 
-            // markerImg.href = "http://localhost:3006/favicon.ico";    
+            // markerImg.src = "http://localhost:3006/favicon.ico";
+            // markerImg.href = "http://localhost:3006/favicon.ico";
             markerContent.appendChild(markerImg);
     */
 
@@ -314,36 +314,36 @@ $(function() {
     //      markerContent.appendChild(markerSpan);
 
 //  marker.setContent(markerContent);
-//  marker.setAnimation('AMAP_ANIMATION_BOUNCE'); 
-    // var info = [];                 
-    // info.push("<b>  高德软件</b>");                 
-    // info.push("  电话 :  010-84107000   邮编 : 100102");                 
-    // info.push("  地址 : 北京市望京阜通东大街方恒国际中心A座16层");                 
-                   
-    // var inforWindow = new AMap.InfoWindow({                 
-    //   offset:new AMap.Pixel(0,-23),                 
-    //   content:info.join("<br>")              
-    // });  
+//  marker.setAnimation('AMAP_ANIMATION_BOUNCE');
+    // var info = [];
+    // info.push("<b>  高德软件</b>");
+    // info.push("  电话 :  010-84107000   邮编 : 100102");
+    // info.push("  地址 : 北京市望京阜通东大街方恒国际中心A座16层");
 
-//  AMap.event.addListener(marker,"click",function(e){  
+    // var inforWindow = new AMap.InfoWindow({
+    //   offset:new AMap.Pixel(0,-23),
+    //   content:info.join("<br>")
+    // });
+
+//  AMap.event.addListener(marker,"click",function(e){
 //      window.location.href='/';
-      // inforWindow.open(map,marker.getPosition());                 
-//  }); 
-    
-    
-            
+      // inforWindow.open(map,marker.getPosition());
+//  });
 
-    // var groundimageOpts = {   
-    //   map: map,     //添加到地图 
-    //   opacity:0.8,    //设置图片的透明度 
-    //   clickable:true  //图片相应鼠标点击事件，默认：false 
-    // }; 
 
-    // var sw = new AMap.LngLat(116.384377, 39.935029); 
-    // var ne = new AMap.LngLat(116.388331, 39.939577);  
-    // var bounds = new AMap.Bounds(sw,ne);//图片叠加的地理范围 
-       
-    // var groundImage = new AMap.GroundImage("http://localhost:3006/favicon.icon", bounds, groundimageOpts);//图片地址，图片叠加的地理范围，图片初始化对象 
+
+
+    // var groundimageOpts = {
+    //   map: map,     //添加到地图
+    //   opacity:0.8,    //设置图片的透明度
+    //   clickable:true  //图片相应鼠标点击事件，默认：false
+    // };
+
+    // var sw = new AMap.LngLat(116.384377, 39.935029);
+    // var ne = new AMap.LngLat(116.388331, 39.939577);
+    // var bounds = new AMap.Bounds(sw,ne);//图片叠加的地理范围
+
+    // var groundImage = new AMap.GroundImage("http://localhost:3006/favicon.icon", bounds, groundimageOpts);//图片地址，图片叠加的地理范围，图片初始化对象
     // groundImage.setMap(map);
 // })(window);
 });

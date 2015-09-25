@@ -19,17 +19,24 @@ app.set('view engine', 'ejs');
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json({type: 'application/json'}));
-app.use(bodyParser.text({type: 'text/plain'}));
+app.use(bodyParser.text({type: 'application/xml'}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // create access,error stream
-var accessLogStream = fs.createWriteStream(__dirname + config.express.access_path, {flags: 'a'});
+// var accessLogStream = fs.createWriteStream(__dirname + config.express.access_path, {flags: 'a'});
  
 // log access 
-app.use(logger('combined', {stream: accessLogStream}));
+// app.use(logger('combined', {stream: accessLogStream}));
 
 appRouter(app);
+
+app.set('port', config.express.port || 3000);
+
+app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + config.express.port);
+    console.log("Express env " + app.get('env'));
+});
 
 module.exports = app;
